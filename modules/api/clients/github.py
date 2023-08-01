@@ -15,3 +15,15 @@ class GitHub:
         body = r.json()  # Метод повертає тіло відповіді від сервера у форматі json
 
         return body
+
+    def search_emoji(self):
+        r = requests.get("https://api.github.com/emojis")
+        body = r.json()
+
+        return body
+
+    def search_commit(self, owner, repo):
+        r = requests.get(f"https://api.github.com/repos/{owner}/{repo}/commits")
+        body = r.json()
+
+        return body
