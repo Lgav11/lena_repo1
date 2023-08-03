@@ -1,5 +1,6 @@
 import pytest
 from modules.api.clients.github import GitHub
+from modules.common.database import Database
 
 
 class User:
@@ -45,3 +46,9 @@ def user_repo():
     repo1.create_repo()
 
     yield repo1
+
+
+@pytest.fixture
+def db_create():
+    db = Database()
+    yield db

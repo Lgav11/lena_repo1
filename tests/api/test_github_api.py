@@ -38,18 +38,15 @@ tests for Get emoji
 """
 
 
-# в цьому тесті я додала фікстуру щоб потренуватись
 @pytest.mark.api
 def test_check_emoji_in_list(github_api):
     r = github_api.search_emoji()
     assert "accordion" in r
 
 
-# а в цьому не додавала адже для емоджі немає параметрів
 @pytest.mark.api
-def test_check_emoji_not_in_list():
-    api = GitHub()
-    r = api.search_emoji()
+def test_check_emoji_not_in_list(github_api):
+    r = github_api.search_emoji()
     assert "sddsq" not in r
 
 
