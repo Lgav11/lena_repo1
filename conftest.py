@@ -1,6 +1,8 @@
 import pytest
 from modules.api.clients.github import GitHub
 from modules.common.database import Database
+from modules.ui.page_objects.base_page import BasePage
+from modules.ui.page_objects.Amazon_pages.product_listing_page import ProductListingPage
 
 
 class User:
@@ -52,3 +54,10 @@ def user_repo():
 def db_create():
     db = Database()
     yield db
+
+
+@pytest.fixture
+def product_listing_page():
+    search = ProductListingPage()
+    search.navigate_to()
+    yield search
